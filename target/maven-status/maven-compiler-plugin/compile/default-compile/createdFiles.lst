@@ -1,5 +1,10 @@
+Servlet\AddUserServlet.class
+Main.class
+Servlet\StartServlet.class
+Servlet\AllUserServlet.class
 util\DBUtil.class
+Servlet\DelUserServlet.class
 service\UserService.class
-Servlet\ServletCRUD.class
 DAO\UserDAO.class
+Servlet\UpdateUserServlet.class
 model\User.class

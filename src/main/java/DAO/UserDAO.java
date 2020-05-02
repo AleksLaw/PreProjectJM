@@ -80,11 +80,15 @@ public class UserDAO {
                 add(Restrictions.eq("name", user.getName())).
                 add(Restrictions.eq("surname", user.getSurname())).
                 list();
-        User userGet = listUser.get(0);
-        Long id = userGet.getId();
+
         transaction.commit();
         session.close();
-        return id;
+        if (listUser.size() != 0) {
+            User userGet = listUser.get(0);
+            Long id = userGet.getId();
+            return id;
+        }
+        return null;
     }
     @SuppressWarnings("UnusedDeclaration")
     public User getUserByIdDAO(Long id) {

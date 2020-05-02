@@ -1,5 +1,10 @@
 E:\JavaSrcIdea\CrudJM\src\main\java\model\User.java
 E:\JavaSrcIdea\CrudJM\src\main\java\DAO\UserDAO.java
+E:\JavaSrcIdea\CrudJM\src\main\java\Servlet\DelUserServlet.java
 E:\JavaSrcIdea\CrudJM\src\main\java\util\DBUtil.java
-E:\JavaSrcIdea\CrudJM\src\main\java\Servlet\ServletCRUD.java
+E:\JavaSrcIdea\CrudJM\src\main\java\Servlet\StartServlet.java
 E:\JavaSrcIdea\CrudJM\src\main\java\service\UserService.java
+E:\JavaSrcIdea\CrudJM\src\main\java\Servlet\AddUserServlet.java
+E:\JavaSrcIdea\CrudJM\src\main\java\Servlet\UpdateUserServlet.java
+E:\JavaSrcIdea\CrudJM\src\main\java\Servlet\AllUserServlet.java
+E:\JavaSrcIdea\CrudJM\src\main\java\Main.java

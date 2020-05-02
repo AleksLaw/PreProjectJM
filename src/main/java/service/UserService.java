@@ -3,6 +3,8 @@ package service;
 import DAO.UserDAO;
 import model.User;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class UserService {
@@ -21,7 +23,9 @@ public class UserService {
     }
 
     public List<User> allUser() {
-        return userDAO.allUserDAO();
+        ArrayList<User> list = (ArrayList<User>) userDAO.allUserDAO();
+        list.sort(Comparator.comparing(User::getId));
+        return list;
     }
 
     public boolean addUser(User user) {

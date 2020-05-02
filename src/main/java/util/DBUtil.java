@@ -21,8 +21,6 @@ public class DBUtil {
     private static Configuration getMySqlConfiguration() {
         Configuration configuration = new Configuration();
         configuration.addAnnotatedClass(User.class);
-        System.out.println(configuration.getProperties());
-
 
         configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         configuration.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
