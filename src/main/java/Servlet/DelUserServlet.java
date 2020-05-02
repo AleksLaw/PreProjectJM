@@ -13,12 +13,12 @@ import java.io.IOException;
 @WebServlet(value = "/delUser")
 public class DelUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserService userService = UserService.getInstance();
+        UserService userService = new UserService();
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         User user = new User(name, surname);
 
-        if (!name.equals("") && !surname.equals("")&& userService.findUser(user)!=null) {
+        if (!name.equals("") && !surname.equals("")) {
             if (userService.delUser(user)) {
                 request.getRequestDispatcher("/delete.jsp").forward(request, response);
             }

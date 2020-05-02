@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet(value = "/update")
 public class UpdateUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserService userService = UserService.getInstance();
+        UserService userService = new UserService();
         String nameOld = request.getParameter("nameOld");
         String surnameOld = request.getParameter("surnameOld");
         String nameNew = request.getParameter("nameNew");
@@ -21,10 +21,9 @@ public class UpdateUserServlet extends HttpServlet {
         User userOld = new User(nameOld, surnameOld);
         User userNew = new User(nameNew, surnameNew);
 
-        if (!nameOld.equals("")&& !surnameOld.equals("")
-                && !nameNew.equals("") && !surnameNew.equals("")
-                && userService.findUser(userOld)!=null) {
-            if (userService.updateUser(userOld,userNew)) {
+        if (!nameOld.equals("") && !surnameOld.equals("")
+                && !nameNew.equals("") && !surnameNew.equals("")) {
+            if (userService.updateUser(userOld, userNew)) {
                 request.getRequestDispatcher("/update.jsp").forward(request, response);
             }
         } else {
@@ -33,6 +32,5 @@ public class UpdateUserServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.getWriter().println("doGet  /upda ");
     }
 }

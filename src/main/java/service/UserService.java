@@ -3,49 +3,64 @@ package service;
 import DAO.UserDAO;
 import model.User;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class UserService {
-    private static UserService userService;
     private UserDAO userDAO;
 
-    public static UserService getInstance() {
-        if (userService == null) {
-            userService = new UserService(UserDAO.getInstance());
-        }
-        return userService;
-    }
-
-    public UserService(UserDAO userDAO) {
-        this.userDAO = userDAO;
+    public UserService() {
+        this.userDAO = UserDAO.getUserDAO();
     }
 
     public List<User> allUser() {
-        ArrayList<User> list = (ArrayList<User>) userDAO.allUserDAO();
+        ArrayList<User> list = null;
+        try {
+            list = (ArrayList<User>) userDAO.allUserDAO();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         list.sort(Comparator.comparing(User::getId));
         return list;
     }
 
     public boolean addUser(User user) {
-       return userDAO.addUserDAO(user);
+        boolean result = false;
+        try {
+            result = userDAO.addUserDAO(user);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
     }
 
     public boolean delUser(User user) {
-        return userDAO.delUserDAO(user);
+        boolean result = false;
+        try {
+            result = userDAO.delUserDAO(user);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
     }
 
     public boolean updateUser(User userOld, User userNew) {
-        return userDAO.updateUserDAO(userOld,userNew);
+        boolean result = false;
+        try {
+            result = userDAO.updateUserDAO(userOld, userNew);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return result;
     }
 
-    public Long findUser(User user) {
-        return userDAO.findUserDAO(user);
+    public void createTable() throws SQLException {
+        userDAO.createTable();
     }
 
-    public User getUserById(Long id) {
-        return userDAO.getUserByIdDAO(id);
+    public void dropTable() throws SQLException {
+        userDAO.dropTable();
     }
-
 }

@@ -14,11 +14,6 @@
 <h2>Создание нового пользователя</h2><br>
 
 
-<%--<form action="/addUser" method="post">--%>
-<%--    Name:        <input type="text" name="name"/>--%>
-<%--    Surname:     <input type="text" name="surname"/>--%>
-<%--    <input name="submit" type="submit" value ="Добавить">--%>
-<%--</form>--%>
 <% String name = request.getParameter("name");
     String surname = request.getParameter("surname");
     if (name != null & surname != null) {

@@ -37,7 +37,7 @@
 
     <label><input type="text" name="surnameNew"></label>Новая Фамилия<br>
 
-    <input type="submit" value="Добавить" ><br>
+    <input type="submit" value="Изменить" ><br>
 </form>
 
 

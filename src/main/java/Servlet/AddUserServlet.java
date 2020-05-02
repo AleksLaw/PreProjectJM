@@ -13,7 +13,7 @@ import java.io.IOException;
 @WebServlet(value = "/addUser")
 public class AddUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        UserService userService = UserService.getInstance();
+        UserService userService = new UserService();
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
 

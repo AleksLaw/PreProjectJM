@@ -19,7 +19,8 @@
 
 <ul>
     <%
-        for (User user : UserService.getInstance().allUser()) {
+        UserService userService = new UserService();
+        for (User user : userService.allUser()) {
             out.print("<p>" + user + "</p>");
             out.println("--------------------");
         }
